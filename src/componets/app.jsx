@@ -2,6 +2,7 @@
 import React from 'react'
 import MappingOverMovies from './listOfMovies.jsx'
 import SearchBar from './SearchBar.jsx'
+import AddMovie from './addMovie.jsx'
 
 class App extends React.Component {
     //create a constructor
@@ -15,7 +16,8 @@ class App extends React.Component {
             movieList: this.props.movies,
         }
         // it's also best practice to bind functions here
-        this.handleSearch = this.handleSearch.bind(this)
+        this.handleSearch = this.handleSearch.bind(this);
+        this.addMovie = this.addMovie.bind(this);
         //lifecycle methods 
           // this is where we want to put code that we want to execute at a specific 
           // time in a components lifecycle 
@@ -33,6 +35,14 @@ class App extends React.Component {
         })
         this.setState({movieList: filteredArray})
     }
+    addMovie(movie) {
+        //make date object to be add to the movielist
+       var movieObj = {};
+        //add a title property
+       movieObj[title] = movie
+       //add new data to the movieList
+        this.state.movieList.push(movieObj)
+    }
     //methods
     // this is where we put functions to manipulate this classese state(handler events)
  
@@ -40,6 +50,7 @@ class App extends React.Component {
     return (
     <div>
         <h1 className="title">Movielist!!</h1>
+        <AddMovie />
         <SearchBar handleSearch={this.handleSearch} />
         <MappingOverMovies movies={this.state.movieList} />
     </div>
