@@ -1,0 +1,13 @@
+.list{
+    text-size-adjust: 14px;
+    text-align: center;
+    margin: 40px;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.title{
+    text-align: center;
+    border-bottom: solid;
+    border-color: brown;
+}
