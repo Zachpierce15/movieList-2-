@@ -8,7 +8,7 @@ const Movie = (props) => (
 
       <div>
       
-        <button id='watchedButton' >Watched</button>
+        <button id='watchedButton' onClick={() => props.toggle(props.movie)}>Watched</button>
 
       </div>
 

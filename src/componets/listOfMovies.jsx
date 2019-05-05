@@ -5,8 +5,13 @@ var MappingOverMovies = (props) => (
 
 <div>
 
-    {props.movies.map((movie) => {
-       return <Movie key={props.movies.indexOf(movie)} movieTitle={movie.title}/>
+    {props.movies.map((movie, index) => {
+        if(movie.watched === true) {
+            return <Movie key={index.toString()} movieTitle={movie.title} toggle={props.toggle} movie={movie}/>
+        } else {
+        movie.watched = false
+            return <Movie key={index.toString()} movieTitle={movie.title} toggle={props.toggle} movie={movie}/>
+        }
     })}
 </div>
 )
