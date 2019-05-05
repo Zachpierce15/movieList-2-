@@ -1,13 +1,24 @@
-.list{
+.list {
     text-size-adjust: 14px;
     text-align: center;
-    margin: 40px;
+    margin: 50px;
+    margin-top: 5px;
     border: solid;
     border-width: 1px;
     border-color: black;
+    font-size: 25px;
 }
-.title{
+.title {
     text-align: center;
     border-bottom: solid;
     border-color: brown;
+}
+#watchedButton {
+    text-align: right;
+    font-size: 15px;
+
+}
+.filterWatched {
+    margin-top: 10px;
+    margin-left: 40px;
 }

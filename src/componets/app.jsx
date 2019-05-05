@@ -14,18 +14,23 @@ class App extends React.Component {
             displayList: this.props.movies,
             query: '',
             movieList: this.props.movies,
+            userAdded: [],
+            toWatch: this.props.movies ,
+            watched: []
         }
         // it's also best practice to bind functions here
         this.handleSearch = this.handleSearch.bind(this);
-        this.addMovie = this.addMovie.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
         //lifecycle methods 
           // this is where we want to put code that we want to execute at a specific 
           // time in a components lifecycle 
 
     }
+    //methods that can change the state!!!!!!!
     handleSearch(query) {
         this.setState({query: query}, this.filteredList);
-    }
+    };
+    
     filteredList(query) {
         query = this.state.query
         var filteredArray = this.state.displayList.filter((element) => {
@@ -34,24 +39,37 @@ class App extends React.Component {
             } 
         })
         this.setState({movieList: filteredArray})
-    }
-    addMovie(movie) {
+    };
+
+    handleAdd(movie) {
+        var copyOfMovies = this.state.userAdded;
         //make date object to be add to the movielist
        var movieObj = {};
         //add a title property
-       movieObj[title] = movie
+       movieObj.title = movie
+       copyOfMovies.push(movieObj)
+       //add new data to the toWatch
+       this.setState({toWatch: copyOfMovies})
+       //add new data to the userAdded
+       this.setState({userAdded: copyOfMovies})
        //add new data to the movieList
-        this.state.movieList.push(movieObj)
+       this.setState({movieList: this.state.userAdded})
+    };
+
+    filterWatched() {
+
     }
-    //methods
     // this is where we put functions to manipulate this classese state(handler events)
  
   render () {
     return (
     <div>
         <h1 className="title">Movielist!!</h1>
-        <AddMovie />
+
+        <AddMovie handleAdd={this.handleAdd}/>
         <SearchBar handleSearch={this.handleSearch} />
+        <button className='filterWatched' >Watched</button>
+        <button className='filterToWatched' >To Watch</button>
         <MappingOverMovies movies={this.state.movieList} />
     </div>
         

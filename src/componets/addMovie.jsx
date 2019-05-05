@@ -7,23 +7,25 @@ class AddMovie extends React.Component{
         // create a state
         super(props) // inherit props from app 
         this.state = {
-            value: '',
+            add: '',
         }
         this.handleChange = this.handleChange.bind(this);
+        this.addMovie = this.addMovie.bind(this);
     }
   handleChange(event) {
     event.preventDefault();
     this.setState({add: event.target.value})
   }
-  handleAdd(event) {
-      
+  addMovie(event) {
+      event.preventDefault();
+     this.props.handleAdd(this.state.add)
   }
 
   render() {
     return (
         <form>
             <input type='text' value={this.state.value} onChange={this.handleChange}></input>
-            <input type='submit' value='Add'></input>
+            <input type='submit' value='Add' onClick={this.addMovie}></input>
         </form>
     );
     }
