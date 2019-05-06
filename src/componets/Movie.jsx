@@ -4,15 +4,15 @@ const Movie = (props) => (
  <div>
     <div className="list" > 
 
-      {props.movieTitle}
+      <span onClick={() => props.clicked()}>{props.movie.title}</span>
 
-      <div>
+
+    </div>
+      <div id='watchedButton'>
       
         <button id='watchedButton' onClick={() => props.toggle(props.movie)}>Watched</button>
 
       </div>
-
-    </div>
 
 
  </div>

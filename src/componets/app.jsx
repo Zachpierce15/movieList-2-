@@ -18,6 +18,7 @@ class App extends React.Component {
             userAdded: [],
             toWatch: this.props.movies ,
             watched: [],
+
         }
         // it's also best practice to bind functions here
         this.handleSearch = this.handleSearch.bind(this);
@@ -85,7 +86,6 @@ class App extends React.Component {
             //change the list according to the changes needed
             updateToWatchList.push(movie)
             updatedWatchList.splice(updatedWatchList.indexOf(movie),1);
-            alert('you just added a movie to the TO WATCHED list')
             //update the watched and toWatch properties in the state
             this.setState({toWatch: updateToWatchList});
             this.setState({watched: updatedWatchList})
@@ -113,6 +113,8 @@ class App extends React.Component {
         this.setState({movieList: this.state.toWatch})
 
     }
+
+  
     // this is where we put functions to manipulate this classese state(handler events)
  
   render () {
@@ -121,10 +123,14 @@ class App extends React.Component {
         <h1 className="title">Movielist!!</h1>
 
         <AddMovie handleAdd={this.handleAdd}/>
+
         <SearchBar handleSearch={this.handleSearch} />
+
         <button className='filterWatched' onClick={this.displayWatchedMovies}>Watched</button>
+
         <button className='filterToWatched' onClick={this.displayToWatchMovies}>To Watch</button>
-        <MappingOverMovies movies={this.state.movieList} toggle={this.toggleWatch}/>
+
+        <MappingOverMovies movies={this.state.movieList} toggle={this.toggleWatch} clicked={this.clickTitle}/>
     </div>
         
         )

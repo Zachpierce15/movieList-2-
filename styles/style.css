@@ -2,6 +2,7 @@
     text-size-adjust: 14px;
     text-align: center;
     margin: 50px;
+    margin-bottom: 10px;
     margin-top: 5px;
     border: solid;
     border-width: 1px;
@@ -14,8 +15,9 @@
     border-color: brown;
 }
 #watchedButton {
-    text-align: right;
+    text-align: center;
     font-size: 15px;
+    position: initial;
 
 }
 .filterWatched {
